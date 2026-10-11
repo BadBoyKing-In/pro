@@ -1,0 +1,251 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebCraft - My Website</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f3f6fb;
+    color: #172033;
+    transition: 0.3s;
+}
+
+header {
+    background: #101827;
+    color: white;
+    padding: 20px 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.logo {
+    color: #60a5fa;
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: #60a5fa;
+}
+
+button {
+    background: #3b82f6;
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #2563eb;
+}
+
+.hero {
+    text-align: center;
+    padding: 100px 20px;
+    background: #dbeafe;
+}
+
+.hero h1 {
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    margin-bottom: 25px;
+}
+
+.services {
+    padding: 60px 6%;
+    text-align: center;
+}
+
+.services h2,
+.about h2 {
+    margin-bottom: 30px;
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    width: 260px;
+    box-shadow: 0 4px 12px #00000012;
+}
+
+.card h3 {
+    margin-bottom: 15px;
+}
+
+.about {
+    text-align: center;
+    padding: 60px 20px;
+    background: #e5e7eb;
+}
+
+footer {
+    text-align: center;
+    background: #101827;
+    color: white;
+    padding: 25px;
+    line-height: 2;
+}
+
+/* Dark mode */
+body.dark {
+    background: #111827;
+    color: #f9fafb;
+}
+
+body.dark .hero {
+    background: #1e293b;
+}
+
+body.dark .card {
+    background: #1f2937;
+    color: white;
+}
+
+body.dark .about {
+    background: #1f2937;
+}
+
+/* Mobile screen */
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+    }
+
+    nav {
+        justify-content: center;
+    }
+
+    .hero h1 {
+        font-size: 30px;
+    }
+
+    .card {
+        width: 100%;
+    }
+}
+
+</style>
+<body>
+
+    <header>
+        <h2 class="logo">WebCraft</h2>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <button id="themeBtn">🌙 Dark Mode</button>
+    </header>
+
+    <section id="home" class="hero">
+        <h1>Welcome to My Website</h1>
+        <p>Learn, create and build amazing websites.</p>
+        <button id="exploreBtn">Explore Services</button>
+        <p id="message"></p>
+    </section>
+
+    <section id="services" class="services">
+        <h2>Our Services</h2>
+
+        <div class="cards">
+            <div class="card">
+                <h3>🌐 Web Design</h3>
+                <p>Modern and responsive website designs.</p>
+            </div>
+
+            <div class="card">
+                <h3>💻 Development</h3>
+                <p>Websites built using HTML, CSS and JS.</p>
+            </div>
+
+            <div class="card">
+                <h3>⚡ JavaScript</h3>
+                <p>Interactive buttons and website features.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <h2>About Us</h2>
+        <p>We create simple and beautiful websites
+           for businesses and individuals.</p>
+    </section>
+
+    <footer id="contact">
+        <p>Contact: hello@example.com</p>
+        <p>© 2026 WebCraft. All rights reserved.</p>
+    </footer>
+
+    <script>
+        
+const exploreBtn = document.getElementById("exploreBtn");
+const message = document.getElementById("message");
+const themeBtn = document.getElementById("themeBtn");
+
+// Explore button
+exploreBtn.addEventListener("click", function () {
+    document.getElementById("services").scrollIntoView({
+        behavior: "smooth"
+    });
+
+    message.textContent = "Explore our services below!";
+});
+
+// Dark mode button
+themeBtn.addEventListener("click", function () {
+    document.body.classList.toggle("dark");
+
+    if (document.body.classList.contains("dark")) {
+        themeBtn.textContent = "☀️ Light Mode";
+    } else {
+        themeBtn.textContent = "🌙 Dark Mode";
+    }
+});
+
+    </script>
+</body>
+</html>
